@@ -1,0 +1,25 @@
+{
+  "name": "full-stack-react-graphql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makhatadze/full-stack-react-graphql.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/makhatadze/full-stack-react-graphql/issues"
+  },
+  "homepage": "https://github.com/makhatadze/full-stack-react-graphql#readme",
+  "devDependencies": {
+    "@types/node": "^14.14.37",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  }
+}

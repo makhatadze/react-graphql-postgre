@@ -7,10 +7,11 @@ import path from 'path';
 export default {
     migrations: {
         path: path.join(__dirname,"./migrations"),
-        pattern: /^[\w-]+\d+\.ts$/
+        pattern: /^[\w-]+\d+\.[tj]$/,
     },
     entities: [Post],
-    dbName: 'lireddit',
+    dbName: 'graph',
+    user: 'postgres',
     password: 'postgres',
     type: 'postgresql',
     debug: !__prod__

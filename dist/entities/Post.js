@@ -11,9 +11,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Post = void 0;
 const core_1 = require("@mikro-orm/core");
-let Post = class Post extends core_1.BaseEntity {
+let Post = class Post {
     constructor() {
-        super(...arguments);
         this.createdAt = new Date();
         this.updatedAt = new Date();
     }
@@ -23,15 +22,15 @@ __decorate([
     __metadata("design:type", Number)
 ], Post.prototype, "id", void 0);
 __decorate([
-    core_1.Property(),
+    core_1.Property({ type: "date" }),
     __metadata("design:type", Object)
 ], Post.prototype, "createdAt", void 0);
 __decorate([
-    core_1.Property({ onUpdate: () => new Date() }),
+    core_1.Property({ type: "date", onUpdate: () => new Date() }),
     __metadata("design:type", Object)
 ], Post.prototype, "updatedAt", void 0);
 __decorate([
-    core_1.Property(),
+    core_1.Property({ type: 'text' }),
     __metadata("design:type", String)
 ], Post.prototype, "title", void 0);
 Post = __decorate([

@@ -5,7 +5,7 @@ import {FormControl, FormErrorMessage, FormLabel, Input} from "@chakra-ui/react"
 interface InputFieldProps extends InputHTMLAttributes<HTMLInputElement> {
     label: string;
     name: string;
-};
+}
 
 
 const InputField: React.FC<InputFieldProps> = ({label,size:_,...props}) => {

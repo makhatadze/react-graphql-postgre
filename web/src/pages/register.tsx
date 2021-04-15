@@ -1,32 +1,35 @@
 import React from "react";
 import {Form, Formik} from "formik";
-import {FormControl, FormLabel, Input} from "@chakra-ui/react";
 import Wrapper from "../components/Wrapper";
+import InputField from "../components/InputField";
 
 interface RegisterProps {
 
 }
 
 const Register: React.FC<RegisterProps> = ({}) => {
-    return(
+    // @ts-ignore
+    return (
         <Wrapper variant='small'>
             <Formik
-                initialValues={{username: "",password: ''}}
+                initialValues={{username: "", password: ''}}
                 onSubmit={(values => {
                     console.log(values)
                 })}
             >
                 {(values, handleChange) => (
                     <Form>
-                        <FormControl >
-                            <FormLabel htmlFor="username">Username</FormLabel>
-                            <Input
-                                value={values.username}
-                                onChange={handleChange}
-                                id="username"
-                                placeholder="username" />
-                        </FormControl>
-                        {/*<FormErrorMessage>{form.errors.name}</FormErrorMessage>*/}
+                        <InputField
+                            name='username'
+                            placeholder='username'
+                            label='Username'
+                        />
+                        <InputField
+                            placeholder="password"
+                            name="password"
+                            label="password"
+                            type="password"
+                        />
                     </Form>
                 )}
 

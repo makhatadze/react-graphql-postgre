@@ -73,6 +73,7 @@ let UserResolver = class UserResolver {
         });
     }
     register(options, { em, req }) {
+        var _a;
         return __awaiter(this, void 0, void 0, function* () {
             const errors = validateRegister_1.validateRegister(options);
             if (errors) {
@@ -95,7 +96,8 @@ let UserResolver = class UserResolver {
                 user = result[0];
             }
             catch (err) {
-                if (err.code === '23505' || err.detail.includes('already exists')) {
+                console.log(err);
+                if (err.code === '23505' || ((_a = err.detail) === null || _a === void 0 ? void 0 : _a.includes('already exists'))) {
                     return {
                         errors: [{
                                 field: 'username',

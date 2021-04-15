@@ -78,7 +78,8 @@ export class UserResolver {
                 .returning('*')
             user = result[0];
         } catch (err) {
-            if (err.code === '23505' || err.detail.includes('already exists')) {
+            console.log(err)
+            if (err.code === '23505' || err.detail?.includes('already exists')) {
                 return {
                     errors: [{
                         field: 'username',

@@ -6,6 +6,7 @@ import {Box, Button} from "@chakra-ui/react";
 import {useMutation} from "urql";
 import {useRegisterMutation} from "../generated/graphql";
 import {toErrorMap} from "../utils/toErrorMap";
+import {useRouter} from "next/router";
 
 interface RegisterProps {
 
@@ -13,6 +14,7 @@ interface RegisterProps {
 
 
 const Register: React.FC<RegisterProps> = ({}) => {
+    const router = useRouter();
     const [, register] = useRegisterMutation();
     return (
         <Wrapper variant='small'>
@@ -22,6 +24,8 @@ const Register: React.FC<RegisterProps> = ({}) => {
                     const response = await register(values);
                     if (response.data?.register.errors) {
                         setErrors(toErrorMap(response.data.register.errors))
+                    } else if(response.data?.register.user) {
+                        router.push('/');
                     }
                 }}
             >

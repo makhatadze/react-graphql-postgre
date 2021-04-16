@@ -36,6 +36,7 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
         origin: "http://localhost:3000",
         credentials: true
     }));
+    app.set('trust proxy', 1);
     app.use(express_session_1.default({
         name: constants_1.COOKIE_NAME,
         store: new RedisStore({
@@ -49,7 +50,7 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
             secure: constants_1.__prod__
         },
         saveUninitialized: false,
-        secret: 'qweqweqweqweasddsfgsdfqweasdasfdefsdasdqweasd',
+        secret: 'asdasdasdasdasdasdasdasdasd',
         resave: false,
     }));
     const apolloServer = new apollo_server_express_1.ApolloServer({

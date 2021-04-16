@@ -77,7 +77,6 @@ export class UserResolver {
 
         // log in user after change password
         req.session.userId = user.id;
-
         return {user};
     }
 

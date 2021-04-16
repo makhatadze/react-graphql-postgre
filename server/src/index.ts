@@ -20,18 +20,18 @@ const main = async () => {
     const app = express();
 
     const RedisStore = connectRedis(session)
-    const redis = new Redis()
+    const redis = new Redis();
 
     app.use(cors({
         origin: "http://localhost:3000",
         credentials: true
     }));
-
+    app.set('trust proxy', 1);
     app.use(
         session({
             name: COOKIE_NAME,
             store: new RedisStore({
-                client: Redis,
+                client: Redis as any,
                 disableTouch: true
             }),
             cookie: {
@@ -41,7 +41,7 @@ const main = async () => {
                 secure: __prod__ // cookie only works in https
             },
             saveUninitialized: false,
-            secret: 'qweqweqweqweasddsfgsdfqweasdasfdefsdasdqweasd',
+            secret: 'asdasdasdasdasdasdasdasdasd',
             resave: false,
         })
     )

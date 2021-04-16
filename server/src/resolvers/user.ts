@@ -34,7 +34,7 @@ export class UserResolver {
     async changePassword(
         @Arg('token') token: string,
         @Arg('newPassword') newPassword: string,
-        @Ctx() {redis, em}: MyContext
+        @Ctx() {redis, em, req}: MyContext
     ): Promise<UserResponse> {
         if (newPassword.length <= 3) {
             return {
@@ -74,6 +74,10 @@ export class UserResolver {
 
         user.password = await argon2.hash(newPassword);
         await em.persistAndFlush(user)
+
+        // log in user after change password
+        req.session.userId = user.id;
+
         return {user};
     }
 
